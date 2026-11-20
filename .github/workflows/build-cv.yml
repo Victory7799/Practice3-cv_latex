@@ -1,0 +1,29 @@
+name: Build LaTeX CV and Release
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # 允许你在网页上手动点击按钮运行
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-24.04 # 固定系统版本，避免环境不兼容
+    permissions:
+      contents: write # 必须有写权限才能创建 Release
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex # 你的主 tex 文件名
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Release v${{ github.run_number }}
+          body: "Automated CV PDF build."
+          files: main.pdf # 将编译出的 PDF 上传到 Release
