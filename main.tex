@@ -1,95 +1,69 @@
-\documentclass[11pt,a4paper]{article}
-
-% 页面边距设置
-\usepackage[left=0.7in,right=0.7in,top=0.7in,bottom=0.7in]{geometry}
-\usepackage{titlesec}
+% Save this file as UTF-8. Compile with XeLaTeX.
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.65cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Heros}
 \usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{xcolor}
-
-% 取消页码
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
 \pagestyle{empty}
-
-% 定义节标题格式
-\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{6pt}
-
-% 列表间距设置
-\setlist[itemize]{leftmargin=1.5em, noitemsep, topsep=2pt, parsep=0pt, partopsep=0pt}
-
-% 自定义时间右对齐命令
-\newcommand{\dateright}[1]{\hfill \textit{#1}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlist[itemize]{leftmargin=1.25em,itemsep=2pt,topsep=3pt,parsep=0pt}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{5pt}
 
 \begin{document}
-
-% ==================== 头部信息 ====================
 \begin{center}
-    {\Huge \textbf{PEIJIE YANG}} \\ \vspace{0.2cm}
-    \textit{Master's Candidate in Electronic Engineering — UTSEUS / Shanghai University} \\ \vspace{0.2cm}
-    Tai'an, Shandong, China $|$ +86 184-5383-5128 $|$ \href{mailto:18453835128@163.com}{18453835128@163.com} $|$ Born: Oct 2003
+  {\small CURRICULUM VITAE}\\[4pt]
+  {\LARGE\bfseries QI WANG}\\[4pt]
+  Master's Student | Shanghai University\\[3pt]
+  +86 199 0322 5165\quad |\quad
+  \href{mailto:1985277475@qq.com}{1985277475@qq.com}\quad |\quad Shanghai, China
 \end{center}
 
-% ==================== 目标 ====================
-\section*{Objective}
-Seeking entry into the UT Group engineering program (UTC / UTT) for a master's in electronic and embedded systems. Drawn to the French engineering model of project-based learning and strong industry collaboration, with interests in robotics, automation, and connected embedded systems.
+\section*{EDUCATION}
+\textbf{Shanghai University}\hfill Sep 2026 -- Present\\
+M.Eng. Electronic Information\\
+Research interests: evolutionary learning and medical image segmentation
 
-% ==================== 教育背景 ====================
-\section*{Education}
-\textbf{Shanghai University — UTSEUS (Sino-European School of Technology)} \dateright{Sep 2026 – Present} \\
-\textit{M.Eng. in Electronic Information}
+\textbf{Civil Aviation University of China}\hfill Sep 2021 -- Jul 2025\\
+B.Eng. Electrical Engineering and Automation | GPA: 3.71 | Top 10\%\\
+Selected coursework: Signals and Systems (96), Control Theory and Engineering (90),
+C Programming (95), Power Electronics (92), Electrical Drive Control Systems (92)
+
+\section*{RESEARCH \& ENGINEERING PROJECTS}
+\textbf{Human Learning Optimisation for Medical Image Segmentation}
 \begin{itemize}
-    \item Joint program with the UT Group (Université de Technologie de Compiègne / Troyes). Currently preparing for French master's degree registration.
-    \item Coursework focuses on mechatronics, automatic control, embedded systems, and intelligent sensors.
+  \item Investigated HLO-based neural architecture and parameter optimisation for medical image segmentation, adopting TransUNet as the baseline model
+  \item Reviewed and refactored source code of HLO variants to support algorithm integration and experimental validation on medical datasets
 \end{itemize}
 
-\vspace{4pt}
-\textbf{Qingdao University} \dateright{Sep 2022 – Jun 2026} \\
-\textit{B.Eng. in Robotics Engineering}
+\textbf{Aircraft Longitudinal Flight Control | Bachelor's Thesis}
 \begin{itemize}
-    \item \textbf{Relevant coursework:} Automatic Control Principles, Embedded Systems (STM32), Machine Vision, C Programming, Digital Electronics, Microcontroller Interfacing, Signal Processing.
+  \item Developed and linearised a longitudinal dynamics model with hierarchical pitch, altitude and velocity control
+  \item Implemented online PID gain tuning using a 49-rule fuzzy inference system driven by tracking error and its derivative
+  \item MATLAB simulations demonstrated faster transient response and superior steady-state accuracy compared with fixed-gain PID under step inputs and disturbances
 \end{itemize}
 
-% ==================== 项目与研究经历 ====================
-\section*{Projects \& Research Experience}
-
-\textbf{Cloud-Based Intelligent Fire Warning \& Control System (Undergraduate Thesis)} \dateright{2026 – Present}
+\textbf{Aircraft Attitude Control during Three-Point Jacking}
 \begin{itemize}
-    \item Designed and implemented an end-to-end IoT fire detection and alarm system built around the STM32F103RCT6 microcontroller and the Alibaba Cloud IoT platform.
-    \item Integrated smoke, temperature/humidity, and combustible gas sensors with an ESP8266 Wi-Fi module; established reliable MQTT communication for real-time sensor data upload to the cloud.
-    \item Independently built a WeChat Mini Program with live data dashboard, alarm push notifications, and remote device control.
+  \item Developed an STM32/MPU6050 acquisition system with I\textsuperscript{2}C communication, complementary filtering and quaternion-based attitude estimation
+  \item Modelled three-point jacking dynamics with PID feedback and SVPWM vector control of a permanent-magnet synchronous motor
+  \item Achieved $\pm 0.3^{\circ}$ pitch and roll accuracy in simulation, validated via static calibration and step-response tests
 \end{itemize}
 
-\vspace{4pt}
-\textbf{Tic-Tac-Toe Robotic Game Device (National Electronics Design Contest — Provincial 2nd Prize)} \dateright{Jul 2024 – Sep 2024}
+\section*{INDUSTRIAL EXPERIENCE}
+\textbf{Shanghai Baoying Food \& Beverage Co., Ltd.}\\
+\textit{Quality Control Intern}\hfill Jun--Aug 2023; Jan--Feb 2024
 \begin{itemize}
-    \item Built a human-vs-machine tic-tac-toe robot featuring STM32 as the main controller, OpenMV for board vision, and a 3-axis stepper-motor gantry fitted with a pneumatic gripper to pick and place pieces.
-    \item Designed the TB6600 stepper motor drive circuit and wrote PWM-based motion control firmware, achieving high-precision point-to-point positioning along the X, Y, and Z axes.
-    \item Configured and tuned OpenMV color and circle detection algorithms; implemented rectangular board boundary detection and calibration of the 9 grid intersection points.
+  \item Monitored production and product quality; documented non-conformities for statistical quality analysis
+  \item Collaborated with production teams on formulation verification, sampling, water quality testing and abnormal quality event handling
 \end{itemize}
 
-\vspace{4pt}
-\textbf{Autonomous Medicine Delivery Vehicle (National Electronics Design Contest — Training Project)} \dateright{Mar 2024 – Jun 2024}
-\begin{itemize}
-    \item Developed an autonomous hospital delivery robot based on STM32F103RCT6 and OpenMV4 H7 Plus, combining a lightweight YOLOv2 digit-recognition model with a color-block line-following algorithm.
-    \item Deployed YOLOv2 on OpenMV for real-time ward-number recognition (digits 1–8); fused multi-ROI color detection to track the red guide line and identify cross / T-junctions for path decisions.
-    \item Designed an HC-05 Bluetooth master-slave protocol between two vehicles, exchanging state signals such as "arrived and waiting," "start relay," and "pickup command" to complete coordinated delivery and pickup tasks.
-\end{itemize}
-
-% ==================== 技能 ====================
-\section*{Technical Skills}
-\begin{itemize}
-    \item \textbf{Languages:} English (CET-4, CET-6 — proficient in reading, writing, and technical communication); French (beginner level, currently studying).
-    \item \textbf{Programming:} C / C++, Python, MATLAB, SQL.
-    \item \textbf{Embedded \& Hardware:} STM32 development (HAL / Standard Peripheral Library), OpenMV machine vision, PCB schematic \& layout, soldering, oscilloscope, multimeter, TB6600 stepper driver, ESP8266 Wi-Fi, HC-05 Bluetooth.
-    \item \textbf{Tools \& Platforms:} Keil uVision5, Visual Studio, Altium Designer, Alibaba Cloud IoT, WeChat Mini Program development, Git.
-\end{itemize}
-
-% ==================== 奖项与领导力 ====================
-\section*{Awards \& Leadership}
-\begin{itemize}
-    \item Nat'l 1st Prize — Asia-Pacific Math Modeling (underwater image enhancement); Nat'l 3rd Prize — Shuwei Cup Math Modeling; Prov. 2nd Prize — 2024 National Electronics Design Contest.
-    \item Outstanding Graduate; Outstanding Student Cadre (x2); Excellent Youth League Member (x2); University Scholarship (x3); Putonghua Level 2-A.
-    \item \textbf{Class Academic Representative} — organized study groups, assisted faculty. \textbf{Head of College Hosting Team} — hosted academic/cultural events; built public speaking skills.
-\end{itemize}
-
+\section*{SKILLS \& AWARDS}
+\textbf{Programming \& Tools:} Python, MATLAB, C, STM32, I\textsuperscript{2}C, Visio, MS Office\\
+\textbf{Domain Expertise:} Evolutionary learning optimisation, medical image segmentation, PID \& fuzzy control, attitude estimation\\
+\textbf{Languages:} English (CET-4)\\
+\textbf{Awards:} People's Scholarship (Second Class)
 \end{document}
